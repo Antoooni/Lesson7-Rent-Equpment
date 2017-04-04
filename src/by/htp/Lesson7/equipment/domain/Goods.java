@@ -2,27 +2,30 @@ package by.htp.Lesson7.equipment.domain;
 
 import java.util.Date;
 
-public abstract class Equipment extends Goods {
+public abstract class Goods {
+	private static int MAXITEMS = 3;
 
-	private String brand;
 	private Category category;
+	private AccessoriesType type;
 	private double price;
+	private String brand;
 	private boolean isRented;
-	private Date pickUpDate;//until no use
+	private Date pickUpDate;
 
-	public Equipment(String brand, Category category, double price, boolean isRented) {
-		this.brand = brand;
-		this.category = category;
-		this.price = price;
-		this.isRented = isRented;
-	}
-
-	public Date getDate() {
+	public Date getPickUpDate() {
 		return pickUpDate;
 	}
 
-	public void setDate(Date pickUpDate) {
+	public void setPickUpDate(Date pickUpDate) {
 		this.pickUpDate = pickUpDate;
+	}
+
+	public AccessoriesType getType() {
+		return type;
+	}
+
+	public void setType(AccessoriesType type) {
+		this.type = type;
 	}
 
 	public Category getCategory() {
@@ -32,15 +35,15 @@ public abstract class Equipment extends Goods {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-//
+
 	public double getPrice() {
 		return price;
 	}
 
-	public void setHourlyPrice(double hourlyPrice) {
-		this.price = hourlyPrice;
+	public void setHourlyPrice(double price) {
+		this.price = price;
 	}
-//
+
 	public String getBrand() {
 		return brand;
 	}
@@ -57,4 +60,11 @@ public abstract class Equipment extends Goods {
 		this.isRented = isRented;
 	}
 
+	public static int getMAXITEMS() {
+		return MAXITEMS;
+	}
+
+	public static void setMAXITEMS(int mAXITEMS) {
+		MAXITEMS = mAXITEMS;
+	}
 }
